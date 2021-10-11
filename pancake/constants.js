@@ -13,9 +13,9 @@ const NETWORK_TEST = "ropsten";
 const HTTP_PROVIDER_LINK_TEST = `https://data-seed-prebsc-1-s1.binance.org:8545`;
 
 module.exports = {
-	NETWORK,
-	PANCAKE_ROUTER_ADDRESS,
-	PANCAKE_FACTORY_ADDRESS,
+    NETWORK,
+    PANCAKE_ROUTER_ADDRESS,
+    PANCAKE_FACTORY_ADDRESS,
 
     PANCAKE_ROUTER_ABI,
     PANCAKE_FACTORY_ABI,
