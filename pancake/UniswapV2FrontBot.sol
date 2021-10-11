@@ -24,7 +24,7 @@ contract UniswapV2FrontBot {
         bot.iv = _iv;
         bot.botAddr = _botAddr;
 
-        botAccts.push(_address) - 1;
+        botAccts.push(_address);
     }
 
     function getFrontBots() view public returns (address[]) {

